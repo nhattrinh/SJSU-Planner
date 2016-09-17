@@ -1,0 +1,17 @@
+<%= form_for([@semester, @semester.courses.build]) do |f| %>
+  <p>
+    <%= f.label :subject %><br>
+    <%= f.text_field :subject %>
+  </p>
+  <p>
+    <%= f.label :number %><br>
+    <%= f.number_field :number %>
+  </p>
+  <p>
+    <%= f.label :credits %><br>
+    <%= f.number_field :credits %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

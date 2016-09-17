@@ -1,0 +1,29 @@
+<tr>
+    <td>        
+<p>
+    <%= course.subject %>
+</p>
+</td>
+
+<td>
+<p>
+    <%= course.number %>
+</p>
+</td>
+
+<td>
+<p>
+    <%= course.credits %>
+</p>
+</td>
+
+<td>
+<p>
+  <%= link_to 'Delete', [course.semester, course],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+               
+  <%= link_to 'Update',  edit_semester_course_path(course.semester, course) %>
+</p>
+</td>
+</tr>
