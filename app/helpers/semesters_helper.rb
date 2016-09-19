@@ -1,41 +1,41 @@
 module SemestersHelper
 
-    def numeric_grade (grade)
+    def grade_weight (grade)
         num_grade = case grade
-            when "A" then 4
-            when "B" then 3
-            when "C" then 2
-            when "D" then 1
-            else 0
+            when "A" then 4.0
+            when "B" then 3.0
+            when "C" then 2.0
+            when "D" then 1.0
+            else 0.0
         end
         return num_grade
     end
 
     def alphabetic_grade (average)
-        if (average>=90)
+        if (average>=4)
             return "A"
-        elsif (average>=80 && average<90)
+        elsif (average>=3 && average<4)
             return "B"
-        elsif (average>=70 && average<80)
+        elsif (average>=2 && average<3)
             return "C"
-        elsif (average>=60 && average<70)
+        elsif (average>=1 && average<2)
             return "D"
         else 
             return "F"
         end
     end
    
-    def average_alphabetic_grade (semester)
+    def grade_point_average (semester)
         total = 0
-        count = 0
+        credits = 0
         semester.courses.each do |course|
             unless course.grade.eql?("") 
-                count = count +1
+                credits += course.credits
             end
-            total += numeric_grade(course.grade)
+            total += grade_weight(course.grade)*course.credits
         end
-        total = total/count
-        return alphabetic_grade(total)
+        total = total/credits
+        return total
     end
 
         
