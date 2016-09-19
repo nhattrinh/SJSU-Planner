@@ -41,4 +41,5 @@
 <%= link_to 'Back', semesters_path %>
 
 <p>Semester GPA: <%= grade_point_average(@semester) %>
+<p>Semester Alphabetical Average: <%= alphabetic_grade (grade_point_average(@semester)) %>
 <br />
