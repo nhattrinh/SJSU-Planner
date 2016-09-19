@@ -2,11 +2,11 @@ module SemestersHelper
 
     def numeric_grade (grade)
         num_grade = case grade
-            when "A" then 90
-            when "B" then 80
-            when "C" then 70
-            when "D" then 60
-            else 50
+            when "A" then 4
+            when "B" then 3
+            when "C" then 2
+            when "D" then 1
+            else 0
         end
         return num_grade
     end
@@ -25,12 +25,16 @@ module SemestersHelper
         end
     end
    
-    def grade_point_average (semester)
+    def average_alphabetic_grade (semester)
         total = 0
+        count = 0
         semester.courses.each do |course|
+            unless course.grade.eql?("") 
+                count = count +1
+            end
             total += numeric_grade(course.grade)
         end
-        total = total/semester.courses.count
+        total = total/count
         return alphabetic_grade(total)
     end
 
