@@ -35,10 +35,10 @@
 <% end %>
 </table>
 
-<%= grade_point_average(@semester) %>
-<br />
-
 <%= link_to 'New Course', new_semester_course_path(params[:id]) %> |
 
 <%= link_to 'Edit', edit_semester_path(@semester) %> |
 <%= link_to 'Back', semesters_path %>
+
+<p>Semester GPA: <%= grade_point_average(@semester) %>
+<br />
