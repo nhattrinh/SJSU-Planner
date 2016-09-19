@@ -4,10 +4,12 @@ one:
   subject: MyString
   number: 1
   credits: 1
-  semester: 
+  grade: MyString
+  semester: one
 
 two:
   subject: MyString
   number: 1
   credits: 1
-  semester: 
+  grade: MyString
+  semester: two

@@ -4,7 +4,8 @@ class CreateCourses < ActiveRecord::Migration[5.0]
       t.string :subject
       t.integer :number
       t.integer :credits
-      t.references :semester, index: true, foreign_key: true
+      t.string :grade
+      t.references :semester, foreign_key: true
 
       t.timestamps
     end
