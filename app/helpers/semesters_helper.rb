@@ -66,9 +66,38 @@ module SemestersHelper
         end
     end
 
-        
-        
+        def total_num_of_units (semester)
+            numCredits = 0
+            if (!semester.courses.empty?)
+                semester.courses.each do |course|
+                    numCredits += course.credits
+                end
+            end
+            return numCredits
+        end
 
+        def units_so_far (semesters)
+            units = 0
+            semesters.each do |semester|
+                units += total_num_of_units(semester)
+            end
+            return units
+        end 
+
+        def cumulative_GPA (semesters)
+            totalGPA = 0
+            semesters.each do |semester|
+                    semGPA = grade_point_average(semester)
+                    if (semGPA != nil)
+                        semUnits = total_num_of_units(semester)
+                        semPoints = semGPA*semUnits
+                        totalGPA += semPoints
+                    end
+            end
+            return totalGPA/units_so_far(semesters)
+        end
+
+       
 
 
 end
