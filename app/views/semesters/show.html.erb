@@ -40,6 +40,7 @@
 <%= link_to 'Edit', edit_semester_path(@semester) %> |
 <%= link_to 'Back', semesters_path %>
 
+<p>Total Units: <%= total_num_of_units(@semester) %>
 <p>Semester GPA: <%= grade_point_average(@semester) %>
 <p>Semester Alphabetical Average: <%= alphabetic_grade (grade_point_average(@semester)) %>
 <br />
