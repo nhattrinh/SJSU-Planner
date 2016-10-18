@@ -1,5 +1,6 @@
 class Course < ApplicationRecord
-    has_many :grades
+    has_many :grades,
+             dependent: :nullify
     has_and_belongs_to_many :semesters
 
     has_many :course_prereqs,
