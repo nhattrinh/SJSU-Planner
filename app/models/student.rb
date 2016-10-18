@@ -6,4 +6,7 @@ class Student < ApplicationRecord
            through: :grades
   has_many :semesters,
            through: :grades
+
+           validates :first_name, presence:  true
+           validates :last_name, presence:  true
 end
