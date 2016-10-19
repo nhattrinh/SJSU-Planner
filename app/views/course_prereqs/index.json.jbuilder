@@ -1,0 +1,1 @@
+json.array! @course_prereqs, partial: 'course_prereqs/course_prereq', as: :course_prereq

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Course:</strong>
+  <%= @course_prereq.course %>
+</p>
+
+<p>
+  <strong>Prereq:</strong>
+  <%= @course_prereq.prereq %>
+</p>
+
+<%= link_to 'Edit', edit_course_prereq_path(@course_prereq) %> |
+<%= link_to 'Back', course_prereqs_path %>
