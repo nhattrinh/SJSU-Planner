@@ -19,7 +19,7 @@
         <td><%= grade.letter_grade %></td>
         <td><%= grade.semester.name %></td>
         <td><%= grade.course.name %></td>
-        <td><%= grade.student.first_name %></td>
+        <td><%= grade.student.full_name %> </td>
         <td><%= link_to 'Show', grade %></td>
         <td><%= link_to 'Edit', edit_grade_path(grade) %></td>
         <td><%= link_to 'Destroy', grade, method: :delete, data: { confirm: 'Are you sure?' } %></td>
