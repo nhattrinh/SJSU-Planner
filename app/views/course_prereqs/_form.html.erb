@@ -13,12 +13,12 @@
 
   <div class="field">
     <%= f.label :course_id %>
-    <%= f.text_field :course_id %>
+    <%= f.collection_select :course_id, Course.all, :id, :full_name, prompt: true %>
   </div>
 
   <div class="field">
     <%= f.label :prereq_id %>
-    <%= f.text_field :prereq_id %>
+    <%= f.collection_select :prereq_id, Course.all, :id, :full_name, prompt: true %>
   </div>
 
   <div class="actions">

@@ -14,8 +14,8 @@
   <tbody>
     <% @course_prereqs.each do |course_prereq| %>
       <tr>
-        <td><%= course_prereq.course %></td>
-        <td><%= course_prereq.prereq %></td>
+        <td><%= course_prereq.postreq.full_name %></td>
+        <td><%= course_prereq.prereq.full_name %></td>
         <td><%= link_to 'Show', course_prereq %></td>
         <td><%= link_to 'Edit', edit_course_prereq_path(course_prereq) %></td>
         <td><%= link_to 'Destroy', course_prereq, method: :delete, data: { confirm: 'Are you sure?' } %></td>
