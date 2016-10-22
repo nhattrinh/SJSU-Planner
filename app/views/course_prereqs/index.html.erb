@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Course Prereqs</h1>
+<h1>Course Prerequisites</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Course</th>
@@ -16,9 +16,9 @@
       <tr>
         <td><%= course_prereq.postreq.full_name %></td>
         <td><%= course_prereq.prereq.full_name %></td>
-        <td><%= link_to 'Show', course_prereq %></td>
-        <td><%= link_to 'Edit', edit_course_prereq_path(course_prereq) %></td>
-        <td><%= link_to 'Destroy', course_prereq, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', course_prereq, class: 'btn btn-default' %></td>
+        <td><%= link_to 'Edit', edit_course_prereq_path(course_prereq), class: 'btn btn-default' %></td>
+        <td><%= link_to 'Destroy', course_prereq, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Course Prereq', new_course_prereq_path %>
+<%= link_to 'New Course Prerequisite', new_course_prereq_path, class: 'btn btn-primary' %>

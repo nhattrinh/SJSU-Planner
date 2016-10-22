@@ -20,9 +20,9 @@
         <td><%= grade.semester.full_name %></td>
         <td><%= grade.course.full_name %></td>
         <td><%= grade.student.full_name %> </td>
-        <td><%= link_to 'Show', grade %></td>
-        <td><%= link_to 'Edit', edit_grade_path(grade) %></td>
-        <td><%= link_to 'Destroy', grade, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', grade, class: 'btn btn-default' %></td>
+        <td><%= link_to 'Edit', edit_grade_path(grade) , class: 'btn btn-default'%></td>
+        <td><%= link_to 'Destroy', grade, method: :delete, data: { confirm: 'Are you sure?' } , class: 'btn btn-danger'%></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Grade', new_grade_path %>
+<%= link_to 'New Grade', new_grade_path , class: 'btn btn-primary'%>
