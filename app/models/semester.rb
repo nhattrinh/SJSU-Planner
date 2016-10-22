@@ -8,4 +8,8 @@ class Semester < ApplicationRecord
     validates :year, presence:  true
     validates :year, length: { is: 4 }
     validates :name, inclusion: { in: ["Fall", "Spring" ,"Winter","Summer"]}
+
+  def full_name
+      "#{name} #{year}"
+  end
 end

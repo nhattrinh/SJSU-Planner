@@ -24,4 +24,8 @@ class Course < ApplicationRecord
              validates :name, length: { minimum: 3 }
              validates :name, length: { maximum: 10 }
 
+  def full_name
+    "#{name} #{number}"
+  end
+
 end

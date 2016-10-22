@@ -17,8 +17,8 @@
     <% @grades.each do |grade| %>
       <tr>
         <td><%= grade.letter_grade %></td>
-        <td><%= grade.semester.name %></td>
-        <td><%= grade.course.name %></td>
+        <td><%= grade.semester.full_name %></td>
+        <td><%= grade.course.full_name %></td>
         <td><%= grade.student.full_name %> </td>
         <td><%= link_to 'Show', grade %></td>
         <td><%= link_to 'Edit', edit_grade_path(grade) %></td>

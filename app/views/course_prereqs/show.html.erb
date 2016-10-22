@@ -2,12 +2,12 @@
 
 <p>
   <strong>Course:</strong>
-  <%= @course_prereq.course %>
+  <%= @course_prereq.course.full_name %>
 </p>
 
 <p>
   <strong>Prereq:</strong>
-  <%= @course_prereq.prereq %>
+  <%= @course_prereq.prereq.full_name %>
 </p>
 
 <%= link_to 'Edit', edit_course_prereq_path(@course_prereq) %> |
