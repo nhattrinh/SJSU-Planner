@@ -4,5 +4,5 @@ class Grade < ApplicationRecord
   belongs_to :student
 
   validates :letter_grade, presence: true
-  validates :letter_grade, inclusion: { in: ["A+","A","A-","B+","B","B-","C+","C","C-","D","F","W",""]}
+  validates :letter_grade, inclusion: { in: ["A+","A","A-","B+","B","B-","C+","C","C-","D","F","W","Planned"]}
 end

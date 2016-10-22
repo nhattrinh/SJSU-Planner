@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :letter_grade %>
-    <%= f.text_field :letter_grade %>
+    <%= f.collection_select :letter_grade, valid_grades, :to_s, :to_s, prompt: true  %>
   </div>
 
   <div class="field">
