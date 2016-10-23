@@ -26,8 +26,13 @@
       </tr>
     <% end %>
   </tbody>
+
 </table>
 
-<br>
+<p>Units taken: <%= units_so_far @grades %></p>
+<br/>
+<p>GPA: <%= cumulative_gpa @grades %> <%= alphabetical_grade(cumulative_gpa(@grades)) %></p>
+<br/>
+<p>Total units: <%= total_units @grades %></p>
 
 <%= link_to 'New Grade', new_grade_path , class: 'btn btn-primary'%>
