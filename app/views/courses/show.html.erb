@@ -1,21 +1,19 @@
 <p id="notice"><%= notice %></p>
-<table>
-  <tr>
-    <th>Subject</th>
-    <th>Number</th>
-    <th>Credits</th>
-    <th>Grade</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-  <tr>
-    <td><%= @course.subject %></td>
-    <td><%= @course.number %></td>
-    <td><%= @course.credits %></td>
-    <td><%= @course.grade %></td>
-  </tr>
-</table>
 
-<%= link_to 'Edit', edit_semester_course_path(@course.semester, @course) %> |
-<%= link_to 'Back', semester_path(@course.semester) %>
+<p>
+  <strong>Name:</strong>
+  <%= @course.name %>
+</p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @course.number %>
+</p>
+
+<p>
+  <strong>Credits:</strong>
+  <%= @course.credits %>
+</p>
+
+<%= link_to 'Edit', edit_course_path(@course), class: 'btn btn-default'%> |
+<%= link_to 'Back', courses_path, class: 'btn btn-default'%>

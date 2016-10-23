@@ -10,17 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160919012038) do
+ActiveRecord::Schema.define(version: 20161018015945) do
+
+  create_table "course_prereqs", force: :cascade do |t|
+    t.integer  "course_id"
+    t.integer  "prereq_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id", "prereq_id"], name: "index_course_prereqs_on_course_id_and_prereq_id", unique: true
+    t.index ["course_id"], name: "index_course_prereqs_on_course_id"
+    t.index ["prereq_id"], name: "index_course_prereqs_on_prereq_id"
+  end
 
   create_table "courses", force: :cascade do |t|
-    t.string   "subject"
+    t.string   "name"
     t.integer  "number"
     t.integer  "credits"
-    t.string   "grade"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "grades", force: :cascade do |t|
+    t.string   "letter_grade"
     t.integer  "semester_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["semester_id"], name: "index_courses_on_semester_id"
+    t.integer  "course_id"
+    t.integer  "student_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["course_id"], name: "index_grades_on_course_id"
+    t.index ["semester_id"], name: "index_grades_on_semester_id"
+    t.index ["student_id"], name: "index_grades_on_student_id"
   end
 
   create_table "semesters", force: :cascade do |t|
@@ -28,6 +47,28 @@ ActiveRecord::Schema.define(version: 20160919012038) do
     t.integer  "year"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "semesters_courses", id: false, force: :cascade do |t|
+    t.integer "semester_id", null: false
+    t.integer "course_id",   null: false
+  end
+
+  create_table "students", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_students_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "email"
+    t.string   "password_digest"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
 end

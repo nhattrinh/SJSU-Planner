@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Letter grade:</strong>
+  <%= @grade.letter_grade %>
+</p>
+
+<p>
+  <strong>Semester:</strong>
+  <%= @grade.semester.full_name %>
+</p>
+
+<p>
+  <strong>Course:</strong>
+  <%= @grade.course.full_name%>
+</p>
+
+<p>
+  <strong>Student:</strong>
+  <%= @grade.student.full_name%>
+</p>
+
+<%= link_to 'Edit', edit_grade_path(@grade), class: 'btn btn-default' %> |
+<%= link_to 'Back', grades_path, class: 'btn btn-default' %>

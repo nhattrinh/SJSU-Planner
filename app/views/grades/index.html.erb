@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Grades</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Letter grade</th>
+      <th>Semester</th>
+      <th>Course</th>
+      <th>Student</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @grades.each do |grade| %>
+      <tr>
+        <td><%= grade.letter_grade %></td>
+        <td><%= grade.semester.full_name %></td>
+        <td><%= grade.course.full_name %></td>
+        <td><%= grade.student.full_name %> </td>
+        <td><%= link_to 'Show', grade, class: 'btn btn-default' %></td>
+        <td><%= link_to 'Edit', edit_grade_path(grade) , class: 'btn btn-default'%></td>
+        <td><%= link_to 'Destroy', grade, method: :delete, data: { confirm: 'Are you sure?' } , class: 'btn btn-danger'%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Grade', new_grade_path , class: 'btn btn-primary'%>

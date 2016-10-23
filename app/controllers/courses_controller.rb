@@ -1,64 +1,74 @@
 class CoursesController < ApplicationController
-  before_action :set_courses
   before_action :set_course, only: [:show, :edit, :update, :destroy]
 
-  # GET semesters/1/courses
+  # GET /courses
+  # GET /courses.json
   def index
-    @courses = @semester.courses
+    @courses = Course.all
   end
 
-  # GET semesters/1/courses/1
+  # GET /courses/1
+  # GET /courses/1.json
   def show
   end
 
-  # GET semesters/1/courses/new
+  # GET /courses/new
   def new
-    @course = @semester.courses.build
+    @course = Course.new
   end
 
-  # GET semesters/1/courses/1/edit
+  # GET /courses/1/edit
   def edit
   end
 
-  # POST semesters/1/courses
+  # POST /courses
+  # POST /courses.json
   def create
-    @course = @semester.courses.build(course_params)
+    @course = Course.new(course_params)
 
-    if @course.save
-      redirect_to([@course.semester, @course], notice: 'Course was successfully created.')
-    else
-      render action: 'new'
+    respond_to do |format|
+      if @course.save
+        format.html { redirect_to @course, notice: 'Course was successfully created.' }
+        format.json { render :show, status: :created, location: @course }
+      else
+        format.html { render :new }
+        format.json { render json: @course.errors, status: :unprocessable_entity }
+      end
     end
   end
 
-  # PUT semesters/1/courses/1
+  # PATCH/PUT /courses/1
+  # PATCH/PUT /courses/1.json
   def update
-    if @course.update_attributes(course_params)
-      redirect_to([@course.semester, @course], notice: 'Course was successfully updated.')
-    else
-      render action: 'edit'
+    respond_to do |format|
+      if @course.update(course_params)
+        format.html { redirect_to @course, notice: 'Course was successfully updated.' }
+        format.json { render :show, status: :ok, location: @course }
+      else
+        format.html { render :edit }
+        format.json { render json: @course.errors, status: :unprocessable_entity }
+      end
     end
   end
 
-  # DELETE semesters/1/courses/1
+  # DELETE /courses/1
+  # DELETE /courses/1.json
   def destroy
     @course.destroy
-
-    redirect_to semester_courses_url(@semester)
+    respond_to do |format|
+      format.html { redirect_to courses_url, notice: 'Course was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_courses
-      @semester = Semester.find(params[:semester_id])
-    end
-
     def set_course
-      @course = @semester.courses.find(params[:id])
+      @course = Course.find(params[:id])
     end
 
-    # Only allow a trusted parameter "white list" through.
+    # Never trust parameters from the scary internet, only allow the white list through.
     def course_params
-      params.require(:course).permit(:subject, :number, :credits, :grade, :semester_id)
+      params.require(:course).permit(:name, :number, :credits)
     end
 end

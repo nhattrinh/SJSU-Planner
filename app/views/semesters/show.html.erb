@@ -10,37 +10,5 @@
   <%= @semester.year %>
 </p>
 
-<table>
-  <tr>
-    <th>Subject</th>
-    <th>Number</th>
-    <th>Credits</th>
-    <th>Grade</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @semester.courses.each do |course| %>
-  <tr>
-    <td><%= course.subject %></td>
-    <td><%= course.number %></td>
-    <td><%= course.credits %></td>
-    <td><%= course.grade %></td>
-
-    <td><%= link_to 'Show', [course.semester, course] %></td>
-    <td><%= link_to 'Edit', edit_semester_course_path(course.semester, course) %></td>
-    <td><%= link_to 'Destroy', [course.semester, course], :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<%= link_to 'New Course', new_semester_course_path(params[:id]) %> |
-
-<%= link_to 'Edit', edit_semester_path(@semester) %> |
-<%= link_to 'Back', semesters_path %>
-
-<p>Total Units: <%= total_num_of_units(@semester) %>
-<p>Semester GPA: <%= grade_point_average(@semester) %>
-<p>Semester Alphabetical Average: <%= alphabetic_grade (grade_point_average(@semester)) %>
-<br />
+<%= link_to 'Edit', edit_semester_path(@semester), class: 'btn btn-default'%> |
+<%= link_to 'Back', semesters_path, class: 'btn btn-default' %>

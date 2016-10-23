@@ -1,0 +1,1 @@
+json.partial! "course_prereqs/course_prereq", course_prereq: @course_prereq

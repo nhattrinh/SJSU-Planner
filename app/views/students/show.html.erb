@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @student.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @student.last_name %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @student.user.email %>
+</p>
+
+<%= link_to 'Edit', edit_student_path(@student), class: 'btn btn-default' %> |
+<%= link_to 'Back', students_path, class: 'btn btn-default' %>
