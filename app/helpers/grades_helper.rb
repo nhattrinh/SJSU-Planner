@@ -3,17 +3,17 @@ module GradesHelper
     ["A+","A","A-","B+","B","B-","C+","C","C-","D","F","W","Planned"]
   end
 
-  def total_units (grades)
+  def total_units (grades)                              #Calculates total units in a semester
     units = 0
     grades.each do |grade|
-      unless is_withdrawn(grade)
+      unless is_withdrawn(grade)    
         units += grade.course.credits
       end
     end
     units
   end
 
-  def units_so_far (grades)
+  def units_so_far (grades)                             #Calculates the units taken so far, units passed 
     units = 0
     grades.each do |grade|
       unless is_planned(grade) || is_withdrawn(grade)
@@ -23,21 +23,19 @@ module GradesHelper
     units
   end
 
-  def cumulative_gpa (grades)
+  def cumulative_gpa (grades)                           #Calculates cumulative GPA
     totalGPA = 0
-    test = 0
     grades.each do |grade|
       unless is_planned(grade) || is_withdrawn(grade)
-        totalGPA += grade_weight(grade)*grade.course.credits
+        totalGPA += grade_weight(grade)*grade.course.credits    #GPA calculation operations
       end
-      test+=1
     end
     totalUnits = units_so_far (grades)
-    totalGPA = totalGPA / totalUnits
+    totalGPA = totalGPA / totalUnits                            #GPA calculation operations
     totalGPA
   end
 
-  def grade_weight (grade)
+  def grade_weight (grade)                             #Assigns letter grades weights for GPA calculation
     num_grade = case grade.letter_grade
                   when "A" then  4.0
                   when "A-" then 3.7
@@ -56,15 +54,15 @@ module GradesHelper
     return num_grade
   end
 
-  def is_planned(grade)
+  def is_planned(grade)                               #Checks for planned courses
     grade.letter_grade.eql?("Planned")
   end
 
-  def is_withdrawn(grade)
+  def is_withdrawn(grade)                             #Checks for withrdawn courses
     grade.letter_grade.eql?("W")
   end
 
-  def alphabetical_grade (average)
+  def alphabetical_grade (average)                    #Assigns alphabetical grade using the GPA range
     if (average == nil)
       return nil
     elsif (average == 4.0)
