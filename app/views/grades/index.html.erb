@@ -27,10 +27,10 @@
 
 </table>
 
-<p>Units taken: <%= units_so_far @grades %></p>
+<p>Units taken: <%= units_so_far acting_student.grades %></p>
 <br/>
-<p>GPA: <%= cumulative_gpa @grades %> <%= alphabetical_grade(cumulative_gpa(@grades)) %></p>
+<p>GPA: <%= cumulative_gpa acting_student.grades %> <%= alphabetical_grade(cumulative_gpa(acting_student.grades)) %></p>
 <br/>
-<p>Total units: <%= total_units @grades %></p>
+<p>Total units: <%= total_units acting_student.grades %></p>
 
 <%= link_to 'New Grade', new_grade_path , class: 'btn btn-primary'%>

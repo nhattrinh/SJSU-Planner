@@ -25,7 +25,7 @@ class GradesController < ApplicationController
   # POST /grades.json
   def create
     @grade = Grade.new(grade_params)
-
+    @grade.student = acting_student
     respond_to do |format|
       if @grade.save
         format.html { redirect_to @grade, notice: 'Grade was successfully created.' }
@@ -69,6 +69,6 @@ class GradesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def grade_params
-      params.require(:grade).permit(:letter_grade, :semester_id, :course_id, :student_id)
+      params.require(:grade).permit(:letter_grade, :semester_id, :course_id)
     end
 end
