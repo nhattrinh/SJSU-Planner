@@ -31,8 +31,12 @@ module GradesHelper
       end
     end
     totalUnits = units_so_far (grades)
-    totalGPA = totalGPA / totalUnits                            #GPA calculation operations
-    totalGPA
+    if totalUnits == 0
+      0
+    else
+      totalGPA = totalGPA / totalUnits                            #GPA calculation operations
+      totalGPA
+    end
   end
 
   def grade_weight (grade)                             #Assigns letter grades weights for GPA calculation
