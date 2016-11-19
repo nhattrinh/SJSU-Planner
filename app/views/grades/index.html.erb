@@ -8,6 +8,7 @@
       <th>Letter grade</th>
       <th>Semester</th>
       <th>Course</th>
+      <th>Credit</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,6 +19,7 @@
         <td><%= grade.letter_grade %></td>
         <td><%= grade.semester.full_name %></td>
         <td><%= grade.course.full_name %></td>
+        <td><%= grade.course.credits %></td>
         <td><%= link_to 'Show', grade, class: 'btn btn-default' %></td>
         <td><%= link_to 'Edit', edit_grade_path(grade) , class: 'btn btn-default'%></td>
         <td><%= link_to 'Destroy', grade, method: :delete, data: { confirm: 'Are you sure?' } , class: 'btn btn-danger'%></td>
