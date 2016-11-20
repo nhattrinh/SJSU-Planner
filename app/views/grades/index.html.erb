@@ -15,6 +15,7 @@
 
   <tbody>
     <% acting_student.grades.each do |grade| %>
+      <% if grade.course != nil %>
       <tr>
         <td><%= grade.letter_grade %></td>
         <td><%= grade.semester.full_name %></td>
@@ -22,8 +23,9 @@
         <td><%= grade.course.credits %></td>
         <td><%= link_to 'Show', grade, class: 'btn btn-default' %></td>
         <td><%= link_to 'Edit', edit_grade_path(grade) , class: 'btn btn-default'%></td>
-        <td><%= link_to 'Destroy', grade, method: :delete, data: { confirm: 'Are you sure?' } , class: 'btn btn-danger'%></td>
+        <td><%= link_to 'Remove', grade, method: :delete, data: { confirm: 'Are you sure?' } , class: 'btn btn-danger'%></td>
       </tr>
+      <% end %>
     <% end %>
   </tbody>
 

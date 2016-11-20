@@ -6,7 +6,7 @@ module GradesHelper
   def total_units (grades)                              #Calculates total units in a semester
     units = 0
     grades.each do |grade|
-      unless is_withdrawn(grade)    
+      unless is_withdrawn(grade) || grade.course == nil   
         units += grade.course.credits
       end
     end
@@ -16,7 +16,7 @@ module GradesHelper
   def units_so_far (grades)                             #Calculates the units taken so far, units passed 
     units = 0
     grades.each do |grade|
-      unless is_planned(grade) || is_withdrawn(grade)
+      unless is_planned(grade) || is_withdrawn(grade) || grade.course == nil
         units += grade.course.credits
       end
     end
@@ -26,7 +26,7 @@ module GradesHelper
   def cumulative_gpa (grades)                           #Calculates cumulative GPA
     totalGPA = 0
     grades.each do |grade|
-      unless is_planned(grade) || is_withdrawn(grade)
+      unless is_planned(grade) || is_withdrawn(grade) || grade.course == nil
         totalGPA += grade_weight(grade)*grade.course.credits    #GPA calculation operations
       end
     end
@@ -35,7 +35,7 @@ module GradesHelper
       0
     else
       totalGPA = totalGPA / totalUnits                            #GPA calculation operations
-      totalGPA
+      totalGPA.round(2)
     end
   end
 
@@ -96,5 +96,4 @@ module GradesHelper
 
     end
   end
-
 end
