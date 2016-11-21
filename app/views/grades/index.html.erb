@@ -14,7 +14,7 @@
   </thead>
 
   <tbody>
-    <% acting_student.grades.each do |grade| %>
+    <% acting_student.grades.includes(:semester).order("semesters.year DESC, semesters.name DESC").each do |grade| %>
       <% if grade.course != nil %>
       <tr>
         <td><%= grade.letter_grade %></td>
