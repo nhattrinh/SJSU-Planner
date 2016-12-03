@@ -1,3 +1,6 @@
+<div class="form-horizontal">
+  <div class="col-md-6 col-md-offset-3">
+
 <%= form_for(course) do |f| %>
   <% if course.errors.any? %>
     <div id="error_explanation">
@@ -11,22 +14,33 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %>
+    <div class="form-group">
+    <%= f.label :name, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
     <%= f.text_field :name %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :number %>
+    <div class="form-group">
+    <%= f.label :number, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
     <%= f.number_field :number %>
+      </div>
   </div>
 
-  <div class="field">
-    <%= f.label :credits %>
+    <div class="form-group">
+    <%= f.label :credits, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
     <%= f.number_field :credits %>
+        </div>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+    <%= f.submit class: 'btn btn-primary'%>
   </div>
+      </div>
 <% end %>
+
+  </div>
+</div>

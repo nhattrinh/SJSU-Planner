@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Grades</h1>
+<h1>Transcript</h1>
 
 <table class="table table-striped">
   <thead>
@@ -8,26 +8,33 @@
       <th>Letter grade</th>
       <th>Semester</th>
       <th>Course</th>
-      <th>Student</th>
+      <th>Credit</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @grades.each do |grade| %>
+    <% acting_student.grades.includes(:semester).order("semesters.year DESC, semesters.name DESC").each do |grade| %>
+      <% if grade.course != nil %>
       <tr>
         <td><%= grade.letter_grade %></td>
         <td><%= grade.semester.full_name %></td>
         <td><%= grade.course.full_name %></td>
-        <td><%= grade.student.full_name %> </td>
+        <td><%= grade.course.credits %></td>
         <td><%= link_to 'Show', grade, class: 'btn btn-default' %></td>
         <td><%= link_to 'Edit', edit_grade_path(grade) , class: 'btn btn-default'%></td>
-        <td><%= link_to 'Destroy', grade, method: :delete, data: { confirm: 'Are you sure?' } , class: 'btn btn-danger'%></td>
+        <td><%= link_to 'Remove', grade, method: :delete, data: { confirm: 'Are you sure?' } , class: 'btn btn-danger'%></td>
       </tr>
+      <% end %>
     <% end %>
   </tbody>
+
 </table>
 
-<br>
+<p>Units taken: <%= units_so_far acting_student.grades %></p>
+<br/>
+<p>GPA: <%= cumulative_gpa acting_student.grades %> <%= alphabetical_grade(cumulative_gpa(acting_student.grades)) %></p>
+<br/>
+<p>Total units: <%= total_units acting_student.grades %></p>
 
 <%= link_to 'New Grade', new_grade_path , class: 'btn btn-primary'%>

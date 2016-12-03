@@ -12,12 +12,7 @@
 
 <p>
   <strong>Course:</strong>
-  <%= @grade.course.full_name%>
-</p>
-
-<p>
-  <strong>Student:</strong>
-  <%= @grade.student.full_name%>
+  <%= @grade.course.full_name %>
 </p>
 
 <%= link_to 'Edit', edit_grade_path(@grade), class: 'btn btn-default' %> |

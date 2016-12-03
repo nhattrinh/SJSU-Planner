@@ -21,7 +21,7 @@ class Course < ApplicationRecord
              validates :name, presence:  true
              validates :number, presence:  true
              validates :credits, presence:  true
-             validates :name, length: { minimum: 3 }
+             validates :name, length: { minimum: 2 }
              validates :name, length: { maximum: 10 }
 
   def full_name

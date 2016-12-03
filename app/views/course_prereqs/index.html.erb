@@ -13,6 +13,7 @@
 
   <tbody>
     <% @course_prereqs.each do |course_prereq| %>
+      <% if course_prereq.postreq != nil && course_prereq.prereq != nil %>
       <tr>
         <td><%= course_prereq.postreq.full_name %></td>
         <td><%= course_prereq.prereq.full_name %></td>
@@ -20,6 +21,7 @@
         <td><%= link_to 'Edit', edit_course_prereq_path(course_prereq), class: 'btn btn-default' %></td>
         <td><%= link_to 'Destroy', course_prereq, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
       </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
