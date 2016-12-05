@@ -16,7 +16,7 @@
   <tbody>
     <% acting_student.grades.includes(:semester).order("semesters.year DESC, semesters.name DESC").each do |grade| %>
       <% if grade.course != nil %>
-      <tr>
+      <tr style="background-color:rgba(255,255,255,0.5);">
         <td><%= grade.letter_grade %></td>
         <td><%= grade.semester.full_name %></td>
         <td><%= grade.course.full_name %></td>

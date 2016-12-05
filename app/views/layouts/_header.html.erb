@@ -1,8 +1,8 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
+<header style="background-color: rgba(255,255,255,0.5);"class="navbar navbar-fixed-top navbar-inverse">
     <div class="container">
         <%= link_to "SJSU Graduation Planner", '#', id: "logo" %>
         <nav>
-            <ul class="nav navbar-nav navbar-right">
+            <ul id="haha" class="nav navbar-nav navbar-right">
                 <% if logged_in? %>
                 <li><%= link_to "Transcript", Grade %></li>
                 <li><%= link_to "Courses", Course %></li>
@@ -16,7 +16,7 @@
                     </ul>
                 </li>
             <% else %>
-                <li><%= link_to "Login", login_path %></li>
+                <li id="login_link"><%= link_to "Login", login_path %></li>
             <% end %>
         </ul>
     </nav>

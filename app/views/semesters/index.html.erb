@@ -13,7 +13,7 @@
 
   <tbody>
     <% @semesters.each do |semester| %>
-      <tr>
+      <tr style="background-color:rgba(255,255,255,0.5);">
         <td><%= semester.name %></td>
         <td><%= semester.year %></td>
         <td><%= link_to 'Show', semester, class: 'btn btn-default' %></td>
