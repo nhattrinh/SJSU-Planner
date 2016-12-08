@@ -1,5 +1,11 @@
 <p id="notice"><%= notice %></p>
 
+</br>
+</br>
+
+
+
+<div class="myp">
 <p>
   <strong>Name:</strong>
   <%= @course.name %>
@@ -14,17 +20,23 @@
   <strong>Credits:</strong>
   <%= @course.credits %>
 </p>
-<%= link_to 'Edit', edit_course_path(@course), class: 'btn btn-default'%> |
-<%= link_to 'Back', courses_path, class: 'btn btn-default'%>
-
-<br>
+</div>
 
 
-</br>
 <tbody>
-    <br> Prerequisites: <br/>
+<p align="center">
+    Prerequisites <br/>
     <% @course.prereqs.each do |prereq| %>
       <br><%= prereq.name %> 
       <%= prereq.number %> <br/>
       <% end %>
+      </p>
 </tbody>
+
+
+</br>
+</br>
+<p align="center">
+<%= link_to 'Edit', edit_course_path(@course), class: 'btn btn-default'%> |
+<%= link_to 'Back', courses_path, class: 'btn btn-default'%>
+</p>

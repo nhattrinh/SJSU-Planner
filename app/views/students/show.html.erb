@@ -1,5 +1,9 @@
 <p id="notice"><%= notice %></p>
+</br>
+</br>
 
+
+<div class="myp">
 <p>
   <strong>First name:</strong>
   <%= @student.first_name %>
@@ -14,6 +18,11 @@
   <strong>User:</strong>
   <%= @student.user.email %>
 </p>
+</div>
 
+</br>
+</br>
+<p align="center">
 <%= link_to 'Edit', edit_student_path(@student), class: 'btn btn-default' %> |
 <%= link_to 'Back', students_path, class: 'btn btn-default' %>
+</p>

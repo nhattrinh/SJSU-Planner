@@ -30,11 +30,10 @@
   </tbody>
 
 </table>
-
+<div align="center">
 <p>Units taken: <%= units_so_far acting_student.grades %></p>
-<br/>
 <p>GPA: <%= cumulative_gpa acting_student.grades %> <%= alphabetical_grade(cumulative_gpa(acting_student.grades)) %></p>
-<br/>
 <p>Total units: <%= total_units acting_student.grades %></p>
 
 <%= link_to 'New Grade', new_grade_path , class: 'btn btn-primary'%>
+</div>

@@ -1,5 +1,9 @@
 <p id="notice"><%= notice %></p>
 
+</br>
+</br>
+
+<div class="myp">
 <p>
   <strong>Name:</strong>
   <%= @semester.name %>
@@ -9,5 +13,10 @@
   <strong>Year:</strong>
   <%= @semester.year %>
 </p>
+</div>
+</br>
+</br>
+<p align="center">
 <%= link_to 'Edit', edit_semester_path(@semester), class: 'btn btn-default'%> |
 <%= link_to 'Back', semesters_path, class: 'btn btn-default' %>
+</p>

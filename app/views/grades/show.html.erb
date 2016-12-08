@@ -1,5 +1,10 @@
 <p id="notice"><%= notice %></p>
 
+</br>
+</br>
+
+
+<div class="myp">
 <p>
   <strong>Letter grade:</strong>
   <%= @grade.letter_grade %>
@@ -15,5 +20,10 @@
   <%= @grade.course.full_name %>
 </p>
 
+</div>
+</br>
+</br>
+<p align="center">
 <%= link_to 'Edit', edit_grade_path(@grade), class: 'btn btn-default' %> |
 <%= link_to 'Back', grades_path, class: 'btn btn-default' %>
+</p>
