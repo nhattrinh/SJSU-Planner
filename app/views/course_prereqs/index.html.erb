@@ -14,7 +14,7 @@
   <tbody>
     <% @course_prereqs.each do |course_prereq| %>
       <% if course_prereq.postreq != nil && course_prereq.prereq != nil %>
-      <tr>
+      <tr style="background-color:rgba(255,255,255,0.5);">
         <td><%= course_prereq.postreq.full_name %></td>
         <td><%= course_prereq.prereq.full_name %></td>
         <td><%= link_to 'Show', course_prereq, class: 'btn btn-default' %></td>
@@ -28,4 +28,6 @@
 
 <br>
 
+<p align="center">
 <%= link_to 'New Course Prerequisite', new_course_prereq_path, class: 'btn btn-primary' %>
+</p>

@@ -24,13 +24,16 @@
 
 
 <tbody>
-<p align="center">
-    Prerequisites <br/>
+
+    </br><div style="font-weight:bold;" align="center">Prerequisites <br/></div>
     <% @course.prereqs.each do |prereq| %>
-      <br><%= prereq.name %> 
+        <div align="center">
+      <%= prereq.name %>
       <%= prereq.number %> <br/>
+      </div>
+
       <% end %>
-      </p>
+
 </tbody>
 
 
