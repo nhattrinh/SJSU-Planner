@@ -1,3 +1,3 @@
-CMPE-131-01-Jewelers
+Jewelers - SJSU Planner
 
-This project aims to help students with their grad plans.
+This project aims to help students with their graduation plans.
